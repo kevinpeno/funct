@@ -7,10 +7,10 @@ import expect from "./expect.js"
  * @param {string} description
  */
 export default (fn, description) => (
-	testFactory(fn, description, given(fn, description))
+	testFactory(description, given(fn, description))
 )
 
-const testFactory = (fn, description, given) => (
+const testFactory = (description, given) => (
 	Object.freeze({
 		description,
 		/**
@@ -24,7 +24,7 @@ const testFactory = (fn, description, given) => (
 		 *
 		 * @param  {...any} args
 		 */
-		when: given
+		when: given,
 	})
 )
 
@@ -39,7 +39,7 @@ const expectFactory = (actual) => (
 const given = (fn, description) => (...args) => {
 	const output = fn.apply(null, args)
 	if (typeof output === "function")
-		return testFactory(output, description, given(output))
+		return testFactory(description, given(output, description))
 	else
 		return expectFactory(output)
 }

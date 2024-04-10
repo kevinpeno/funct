@@ -1,8 +1,8 @@
 /**
  * Describes a suite of assertions for a given function
- * @param {Function} fn
+ * @param {Function} fn - function under test
  */
-export default (fn) => {
+const describe = (fn) => {
 	const assertions = []
 
 	return Object.freeze({
@@ -15,3 +15,5 @@ export default (fn) => {
 		},
 	})
 }
+
+export default describe

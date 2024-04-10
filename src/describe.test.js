@@ -1,7 +1,5 @@
-import assert from "assert"
 import helper from "../helper.js"
 import expect from "./expect.js"
-
 import describe from "./describe.js"
 
 const voidFn = () => { }

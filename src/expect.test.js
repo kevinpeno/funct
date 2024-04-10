@@ -1,6 +1,5 @@
-import assert from "assert"
-import expect from "./expect.js"
 import helper from "../helper.js"
+import expect from "./expect.js"
 
 helper("expect should return true when `expected` and `actual` are equal", () => (
 	expect(

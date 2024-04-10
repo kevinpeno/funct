@@ -2,6 +2,9 @@
 const identity = arg => arg
 const sum = a => b => a + b
 const double = num => sum(num)(num)
+const trade = (a,b) => {
+	// implementation of the trade function
+}
 
 // Unit under test
 const compose = (reverse, ...functions) => input =>
@@ -23,7 +26,7 @@ const describe = (f) => ({
 // used as jumping off point during "it" phase
 const test = expect => f => ({
 	given: given(f, test(expect)),
-	with: given(f, test(expect)),
+	when: given(f, test(expect)),
 	expect: expect(f)
 })
 
@@ -62,10 +65,16 @@ const expect = (description, then) => actual => expected => {
 */
 describe(compose)
 	.it("calls the functions supplied against the input")
-	.given(sum(3), double)
-	.when(1)
-	.expect(8)
-	.it("can be reversed")
-	.given(true, sum(3), double)
-	.when(2)
-	.expect(7)
+		.given("we have a set of calculations", sum(3), double)
+		.when("we provide a value to calculate", 1)
+		.then("the output should match", 8)
+	.it("can apply the operations in reverse")
+		.given(true, sum(3), double)
+		.when(2)
+		.expect(7)
+
+describe(trade)
+	.it("transfers items between two parties")
+		.given("Bob wants to trade apples for oranges", ["apple"])
+		.and("Alice wants to trade oranges for apples", ["orange"])
+
