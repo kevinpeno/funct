@@ -1,0 +1,16 @@
+{
+	"name": "funct",
+	"version": "0.0.1",
+	"description": "functional test suite",
+	"main": "",
+	"type": "module",
+	"scripts": {
+		"test": ""
+	},
+	"repository": {
+		"type": "git",
+		"url": ""
+	},
+	"author": "",
+	"license": "UNLICENSED"
+}
